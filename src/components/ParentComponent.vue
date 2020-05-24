@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ChildComponent :numbers="numbers"/>
+        <ChildComponent :numbers="numbers"
+        @number-added="numbers.push($event)"/>
     </div>
 </template>
 <script>
