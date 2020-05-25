@@ -1,24 +1,24 @@
 <template>
     <div>
-    <input v-model="number" type="number" />
-    <button @click="addNumber">
+    <input v-model="numberINput" type="number" />
+    <button @click="addNumber(numberInput)">
         Add new number
     </button>
     </div>
 </template>
 <script>
-import { EventBus } from "../event-bus.js";
+import { store } from "../store.js";
 
 export default {
    name: "NumberSubmit",
    data() {
        return {
-           number: 0
+           numberInput: 0
        };
    },
    methods: {
-       addNumber() {
-           EventBus.$emit("number-added", Number(this.number))
+       addNumber(numberInput) {
+           store.addNumber(Number(numberInput));
        }
    } 
 };
