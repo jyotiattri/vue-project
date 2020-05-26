@@ -7,7 +7,6 @@
     </div>
 </template>
 <script>
-import { store } from "../store.js";
 
 export default {
    name: "NumberSubmit",
@@ -18,7 +17,10 @@ export default {
    },
    methods: {
        addNumber(numberInput) {
-           store.addNumber(Number(numberInput));
+           this.$store.dispatch( 
+               "addNumber",
+               Number(numberInput)
+           );
        }
    } 
 };
